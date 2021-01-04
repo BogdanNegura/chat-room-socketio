@@ -1,13 +1,17 @@
 import React, { useRef } from 'react'
 import { Container, Form, Button } from "react-bootstrap"
-function Login({ onIdSubmit }) {
+import { v4 as uuidV4 } from "uuid"
 
+const Login = ({ onIdSubmit }) => {
     const idRef = useRef()
 
     const handleSubmit = e => {
         e.preventDefault()
-
         onIdSubmit(idRef.current.value)
+    }
+
+    const createNewId = () => {
+        onIdSubmit(uuidV4())
     }
 
     return (
@@ -18,7 +22,7 @@ function Login({ onIdSubmit }) {
                     <Form.Control type="text" ref={idRef} required></Form.Control>
                 </Form.Group>
                 <Button type="submit" className="mr-2">Login</Button>
-                <Button variant="secondary">Create A New ID</Button>
+                <Button onClick={createNewId} variant="secondary">Create A New ID</Button>
             </Form>
         </Container>
     )
