@@ -28,4 +28,4 @@ const Login = ({ onIdSubmit }) => {
     )
 }
 
-export default Login
+export { Login }
