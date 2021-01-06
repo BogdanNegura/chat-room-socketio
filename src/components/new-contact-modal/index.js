@@ -1,0 +1,1 @@
+export { NewContactModal } from "./new-contact-modal.conponent"
